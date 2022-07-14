@@ -1,0 +1,14 @@
+body{
+    background: #f1f1f1;
+}
+
+.main{
+    &__header {
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #a8a2a2;
+}}g
