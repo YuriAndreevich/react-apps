@@ -1,21 +1,27 @@
-import React from "react";
-import {Link} from 'react-router-dom'
- 
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { SearchContext } from "./PizzaApp";
+
 export default function Header() {
+  const { searchValue, setSearchValue } = useContext(SearchContext);
   return (
     <div className="header">
       <div className="container">
-        <Link to='/pizza'>
-        <div className="header__logo">
-          <img width="38" src="img/pizza-logo.svg" alt="Pizza logo" />
-          <div>
-            <h1>React Pizza</h1>
-            <p>самая вкусная пицца во вселенной</p>
+        <Link to="/pizza">
+          <div className="header__logo">
+            <img width="38" src="img/pizza-logo.svg" alt="Pizza logo" />
+            <div>
+              <h1>React Pizza</h1>
+              <p>самая вкусная пицца во вселенной</p>
+            </div>
           </div>
-        </div>
         </Link>
+        <input
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
         <div className="header__cart">
-          <Link to='/pizza/card/' className="button button--cart">
+          <Link to="/pizza/card/" className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg

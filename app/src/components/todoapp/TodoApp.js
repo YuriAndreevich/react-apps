@@ -12,11 +12,11 @@ const TodoApp = () => {
 
   useEffect(() => {
     axios
-      .get("https://62c8ae128c90491c2cb912cc.mockapi.io/lists?_expand=color&_embed=tasks")
+      .get("https://62d09a6ad9bf9f17058b7196.mockapi.io/item?lists?_expand=color&_embed=tasks")
       .then(({ data }) => {
         setLists(data);
       });
-    axios.get("https://62c8ae128c90491c2cb912cc.mockapi.io/colors").then(({ data }) => {
+    axios.get("https://62d09a6ad9bf9f17058b7196.mockapi.io/item?colors").then(({ data }) => {
       setColors(data);
     });
   }, []);
