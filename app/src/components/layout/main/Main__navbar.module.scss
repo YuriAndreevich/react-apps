@@ -1,0 +1,39 @@
+
+.main{
+&__header{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #000000;
+    color: white;
+    .dropdown{
+        cursor: pointer;
+        background-color: #383636;
+        border: 1px solid white;
+        padding: 10px ;
+        border-radius: 15px;
+        &__content{
+            position: absolute;
+            width: auto;
+            height: auto;
+            background-color: #383636;
+            left: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center ;
+            .item{ 
+                color: white;
+                border: 1px solid white;
+                padding: 10px ;
+                border-radius: 15px;
+                a{
+                    color: white;
+                }
+            }
+        }
+    }
+}}
+
