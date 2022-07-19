@@ -33,10 +33,7 @@
 }
 
 .img__sectionOne {
-    max-width: 494px;
-    max-height: 613px;
-    min-width: 296px;
-    min-height: 367px;
+width: 50%;
 }
 
 .block__sectionOne_h1 {
