@@ -27,7 +27,7 @@ function Main__navbar() {
         {visiblePopup && (
           <div className={s.dropdown__content}>
              <Link className={s.item} to="/layout1">Kelvin Designer</Link>
-            <Link className={s.item} to="/layout2">вфыавыфавы</Link>
+            <Link className={s.item} to="/layout2">МВидео</Link>
             <Link className={s.item} to="/layout3">nft</Link>
           </div>
         )}

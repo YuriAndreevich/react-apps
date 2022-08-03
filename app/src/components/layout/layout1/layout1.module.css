@@ -33,7 +33,8 @@
 }
 
 .img__sectionOne {
-width: 50%;
+    max-width: 100%;
+    height: auto;
 }
 
 .block__sectionOne_h1 {
