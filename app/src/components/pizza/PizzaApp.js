@@ -11,9 +11,7 @@ import Card from "./Card";
 export const SearchContext = React.createContext("");
 
 function PizzaApp() {
-  const activeSort = useSelector((state) => state.filter);
-
-  const activeCatigory = useSelector((state) => state.filter.categoryId);
+  const {activeSort,activeCatigory} = useSelector((state) => state.filter);
 
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
