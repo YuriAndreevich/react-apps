@@ -8,38 +8,17 @@ import Layout1 from "./components/layout/layout1/";
 import Navbar from './components/layout/main/Main__navbar'
 import MVideo from "./components/layout/layout2";
 
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './redux/slices/filterSlice'
-
 function App() {
-
-  const count = useSelector((state) => state.counter.value)
-  const dispatch = useDispatch()
 
   return (
     <div className={s.main}>
-      <div>
-        <button
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          Increment
-        </button>
-        <span>{count}</span>
-        <button
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          Decrement
-        </button>
-      </div>
-      {/* <Navbar/>
+      <Navbar/>
       <Routes>
         <Route path="/pizza/*" element={<PizzaApp />} />
-        <Route path="/todo" element={<TodoApp />} />
+        <Route path="/todo" selement={<TodoApp />} />
         <Route path='/layout1' element={<Layout1/>}/>
         <Route path='/layout2' element={<MVideo/>}/>
-      </Routes> */}
+      </Routes>
     </div>
   );
 }

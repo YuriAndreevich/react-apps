@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Home from "./Home";
 import Header from "./Header";
@@ -10,19 +11,14 @@ import Card from "./Card";
 export const SearchContext = React.createContext("");
 
 function PizzaApp() {
+  const activeSort = useSelector((state) => state.filter);
+
+  const activeCatigory = useSelector((state) => state.filter.categoryId);
+
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeCatigory, setActiveCatigory] = useState(0);
   const [input, setInput] = useState("");
-  const [activeSort, setActiveSort] = useState({
-    name: "популярности (по убыванию)",
-    sort: "rating",
-  });
   const [searchValue, setSearchValue] = useState("");
-
-  const onClickCatygory = (id) => {
-    setActiveCatigory(id);
-  };
 
   const order = activeSort.sort.includes("-") ? "desc" : "asc";
   const sortSearch = activeSort.sort.replace("-", "");
@@ -54,10 +50,6 @@ function PizzaApp() {
                 <Home
                   items={items}
                   isLoading={isLoading}
-                  activeCatigory={activeCatigory}
-                  onClickCatygory={(id) => onClickCatygory(id)}
-                  setActiveSort={setActiveSort}
-                  activeSort={activeSort}
                   setInput={setInput}
                   input={input}
                 />

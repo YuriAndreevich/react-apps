@@ -1,7 +1,8 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setCategoryId } from "../../redux/slices/filterSlice";
 
-function Catigories({activeCatigory, onClickCatygory}) {
-
+function Catigories() {
   const catigory = [
     "Все",
     "Мясные",
@@ -11,6 +12,12 @@ function Catigories({activeCatigory, onClickCatygory}) {
     "Закрытые",
   ];
 
+  const activeCatigory = useSelector((state) => state.filter.categoryId);
+
+  const dispatch = useDispatch();
+  const onClickCatygory = (id) => {
+    dispatch(setCategoryId(id));
+  };
   return (
     <div className="categories">
       <ul>

@@ -6,11 +6,11 @@ import Pizzablock from "./PizzaBlock";
 import Catigories from "./Catigories";
 
 
-function Home({items, isLoading, onClickCatygory, activeCatigory, activeSort, onClickSort, setActiveSort}) {
+function Home({items, isLoading, activeSort, setActiveSort}) {
   return (
     <div className="container">
     <div className="content__top">
-      <Catigories activeCatigory={activeCatigory} onClickCatygory={(id) => onClickCatygory(id)} />
+      <Catigories />
       <Sort activeSort={activeSort}  setActiveSort={(i)=> setActiveSort(i)} />
     </div>
     <h2 className="content__title">Все пиццы</h2>
