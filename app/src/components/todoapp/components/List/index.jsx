@@ -23,7 +23,7 @@ const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem }
           onClick={onClickItem ? () => onClickItem(item) : null}
           >
         
-          <i>{item.icon ? item.icon : <Badge color={item.color.name} />}</i>
+          <i>{item.icon ? item.icon : <Badge color={item.color} />}</i>
           <span>
           {item.name}
           {item.tasks && item.tasks.length > 0 && `(${item.tasks.length})`}

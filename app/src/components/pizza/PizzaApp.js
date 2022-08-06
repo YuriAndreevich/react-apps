@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from 'axios'
 
 import Home from "./Home";
 import Header from "./Header";
@@ -11,29 +12,27 @@ import Card from "./Card";
 export const SearchContext = React.createContext("");
 
 function PizzaApp() {
-  const {activeSort,activeCatigory} = useSelector((state) => state.filter);
+  const {sort, catigoryId} = useSelector((state) => state.filter);
 
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [input, setInput] = useState("");
   const [searchValue, setSearchValue] = useState("");
 
-  const order = activeSort.sort.includes("-") ? "desc" : "asc";
-  const sortSearch = activeSort.sort.replace("-", "");
-  const categorySearch = activeCatigory > 0 ? `category=${activeCatigory}` : "";
+  const order = sort.sort.includes("-") ? "desc" : "asc";
+  const sortSearch = sort.sort.replace("-", "");
+  const categorySearch = catigoryId > 0 ? `category=${catigoryId}` : "";
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      `https://62c8ae128c90491c2cb912cc.mockapi.io/item?${categorySearch}&sortBy=${sortSearch}&order=${order}&title=${searchValue}`
+    axios.get(`https://62c8ae128c90491c2cb912cc.mockapi.io/item?${categorySearch}&sortBy=${sortSearch}&order=${order}&title=${searchValue}`)
+    .then(res => {
+    setItems(res.data)
+    setIsLoading(false)
+    }
     )
-      .then((res) => res.json())
-      .then((arr) => {
-        setItems(arr);
-        setIsLoading(false);
-      });
     // eslint-disable-next-line
-  }, [activeCatigory, activeSort, searchValue]);
+  }, [catigoryId, sort, searchValue]);
 
   return (
     <div className="wrapper">

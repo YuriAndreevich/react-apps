@@ -15,7 +15,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/pizza/*" element={<PizzaApp />} />
-        <Route path="/todo" selement={<TodoApp />} />
+        <Route path="/todo" element={<TodoApp />} />
         <Route path='/layout1' element={<Layout1/>}/>
         <Route path='/layout2' element={<MVideo/>}/>
       </Routes>

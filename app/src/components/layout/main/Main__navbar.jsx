@@ -17,7 +17,7 @@ function Main__navbar() {
     <div className={s.main__header}>
       <Link to="/">Главная</Link>
       <Link to="/pizza">PizzaApp</Link>
-      <Link to="/" onClick={() => window.alert("временно недоступен")}>
+      <Link to="/todo">
       todoApp
       </Link>
       <a className={s.item} href="http://history2022.sava.site/" target='_blank' rel="noreferrer">History</a>
