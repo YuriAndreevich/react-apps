@@ -42,13 +42,15 @@
 .todo {
   display: flex;
   max-width: 750px;
-  height: 530px;
+  min-height: 530px;
   border: 1px solid #f1f1f1;
   border-radius: 10px;
   box-shadow: 1px 2px 10px #000000;
   font-size: 14px;
   margin: 30px;
-  
+  @media (max-width: 754px) {
+    flex-wrap: wrap;
+    }
 
   &__sidebar {
     border-radius: 5px 5px 0;
@@ -59,7 +61,10 @@
     padding: 60px 20px;
   }
   &__tasks {
-    flex: 1;
+    max-width: 500px;
+    @media (max-width: 754px) {
+      max-width: 100%
+      }
   }
 }
 

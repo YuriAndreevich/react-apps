@@ -42,7 +42,7 @@ const TodoApp = () => {
     });
     setLists(newList);
   };
-
+  
   return (
     <div className="todo">
       <div className="todo__sidebar">
@@ -64,7 +64,6 @@ const TodoApp = () => {
                 </svg>
               ),
               name: "Все задачи",
-              active: true,
             },
           ]}
         />
@@ -87,13 +86,15 @@ const TodoApp = () => {
         )}
       </div>
       <div className="todo__tasks">
+
+
         {lists 
          && activeItem
          && (
           
           <Tasks
           activeItem={activeItem}
-            lists={lists}
+            lists={lists[1]}
             onAddTask={onAddTask}
             onEditTitle={onEditListTitle}
           />
