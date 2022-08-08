@@ -16,11 +16,8 @@ const TodoApp = () => {
       .then(({ data }) => {
         setLists(data);
       });
-    axios.get("https://62d09a6ad9bf9f17058b7196.mockapi.io/item?colors").then(({ data }) => {
-      setColors(data);
-    });
-  }, [setLists,setColors]);
-  
+  }, [setLists, setColors]);
+
   const onAddList = (obj) => {
     const newList = [...lists, obj];
     setLists(newList);
@@ -71,9 +68,10 @@ const TodoApp = () => {
             },
           ]}
         />
-        {lists ? (
+        {lists ? (<>
           <List
             items={lists[0].lists}
+            colors={lists[2].colors}
             onRemove={(id) => {
               const newLists = lists.filter((item) => item.id !== id);
               setLists(newLists);
@@ -82,15 +80,20 @@ const TodoApp = () => {
             onClickItem={(item) => setActiveItem(item)}
             activeItem={activeItem}
           />
+        <AddList onAdd={onAddList} colors={lists[2].colors} />
+        </>
         ) : (
           "загрузка..."
         )}
-        <AddList onAdd={onAddList} colors={colors} />
       </div>
       <div className="todo__tasks">
-        {lists && activeItem && (
+        {lists 
+         && activeItem
+         && (
+          
           <Tasks
-            list={activeItem}
+          activeItem={activeItem}
+            lists={lists}
             onAddTask={onAddTask}
             onEditTitle={onEditListTitle}
           />

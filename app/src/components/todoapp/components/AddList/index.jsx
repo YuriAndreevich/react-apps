@@ -32,7 +32,7 @@ const AddList = ({ colors, onAdd }) => {
     }
     setIsLoading(true);
     axios
-      .post("http://localhost:3001/lists", {
+      .post("https://62d09a6ad9bf9f17058b7196.mockapi.io/item/lists", {
         name: inputValue,
         colorId: selectedColor,
       })
@@ -99,16 +99,16 @@ const AddList = ({ colors, onAdd }) => {
             placeholder="Название списка"
           />
           <div className="add-list__popup-colors">
-            {colors.map((color) => (
+            {colors.map((color, i) => (
               <Badge
                 onClick={() => selectColor(color.id)}
                 key={color.id}
-                color={color.name}
+                color={colors[i]}
                 className={selectedColor === color.id && "active"}
               />
             ))}
           </div>
-          <button className="button" onClick={addList}>
+          <button className="todo__button" onClick={addList}>
             {isLoading ? "Добавление..." : "Добавить"}
           </button>
         </div>
