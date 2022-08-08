@@ -19,8 +19,8 @@ const TodoApp = () => {
     axios.get("https://62d09a6ad9bf9f17058b7196.mockapi.io/item?colors").then(({ data }) => {
       setColors(data);
     });
-  }, []);
-
+  }, [setLists,setColors]);
+  
   const onAddList = (obj) => {
     const newList = [...lists, obj];
     setLists(newList);
@@ -73,7 +73,7 @@ const TodoApp = () => {
         />
         {lists ? (
           <List
-            items={lists}
+            items={lists[0].lists}
             onRemove={(id) => {
               const newLists = lists.filter((item) => item.id !== id);
               setLists(newLists);
