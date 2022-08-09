@@ -3,25 +3,25 @@ import axios from "axios";
 
 import addSvg from "../../img/add.svg";
 
-function AddTaskForm({ list, onAddTask }) {
+function AddTaskForm({ activeItem, onAddTask }) {
   const [visibleForm, setVisibleForm] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   const toggleFormVisible = () => {
     setVisibleForm(!visibleForm);
-    setInputValue("");
+    setInputValue('');
   };
   const addTask = () => {
     const obj = {
-      id: list.id,
-      listId: list.id,
+      id: activeItem.id,
+      listId: activeItem.id,
       text: inputValue,
       completed: false,
     };
     axios
-      .post("https://62d09a6ad9bf9f17058b7196.mockapi.io/item?lists=1", obj)
+      .post("https://62d09a6ad9bf9f17058b7196.mockapi.io/tasks?", obj)
       .then(({ data }) => {
-        onAddTask(list.id, data);
+        onAddTask(activeItem.id, data);
         toggleFormVisible();
     });
   };

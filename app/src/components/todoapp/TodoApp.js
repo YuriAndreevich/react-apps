@@ -8,25 +8,37 @@ import { List, AddList, Tasks } from "./components";
 const TodoApp = () => {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [activeTasks, setActiveTasks] = useState(null)
   const [activeItem, setActiveItem] = useState(null);
 
   useEffect(() => {
     axios
-      .get("https://62d09a6ad9bf9f17058b7196.mockapi.io/item")
+      .get("https://62d09a6ad9bf9f17058b7196.mockapi.io/lists?")
       .then(({ data }) => {
         setLists(data);
       });
-  }, [setLists, setColors]);
+      axios
+      .get("https://62d09a6ad9bf9f17058b7196.mockapi.io/colors?")
+      .then(({ data }) => {
+        setColors(data);
+      });
+      axios
+      .get("https://62d09a6ad9bf9f17058b7196.mockapi.io/tasks?")
+      .then(({ data }) => {
+        setActiveTasks(data);
+      });
+      
+  }, [setLists, setColors, setActiveTasks]);
 
   const onAddList = (obj) => {
     const newList = [...lists, obj];
     setLists(newList);
   };
-
   const onAddTask = (listId, taskObj) => {
-    const newList = lists.map((item) => {
+    const newList = lists.map((item, i) => {
+      console.log(item.id)
       if (item.id === listId) {
-        item.tasks = [...item.tasks, taskObj];
+        setActiveTasks = [...item.tasks, taskObj];
       }
       return item;
     });
@@ -42,7 +54,6 @@ const TodoApp = () => {
     });
     setLists(newList);
   };
-  
   return (
     <div className="todo">
       <div className="todo__sidebar">
@@ -69,8 +80,8 @@ const TodoApp = () => {
         />
         {lists ? (<>
           <List
-            items={lists[0].lists}
-            colors={lists[2].colors}
+            items={lists}
+            colors={colors}
             onRemove={(id) => {
               const newLists = lists.filter((item) => item.id !== id);
               setLists(newLists);
@@ -79,24 +90,23 @@ const TodoApp = () => {
             onClickItem={(item) => setActiveItem(item)}
             activeItem={activeItem}
           />
-        <AddList onAdd={onAddList} colors={lists[2].colors} />
+        <AddList onAdd={onAddList} colors={lists[2].colors}  />
         </>
         ) : (
           "загрузка..."
         )}
       </div>
       <div className="todo__tasks">
-
-
         {lists 
          && activeItem
          && (
           
           <Tasks
           activeItem={activeItem}
-            lists={lists[1]}
+          activeTasks={activeTasks}
             onAddTask={onAddTask}
             onEditTitle={onEditListTitle}
+            lists={lists}
           />
         )}
       </div>

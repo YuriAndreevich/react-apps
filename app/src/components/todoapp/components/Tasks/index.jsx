@@ -6,29 +6,31 @@ import "./Tasks.scss";
 import editSVG from "../../img/edit.svg";
 import AddTaskForm from "./AddTaskForm";
 
-function Tasks({ activeItem, lists, onEditTitle, onAddTask }) {
+function Tasks({ activeItem, activeTasks, onEditTitle, onAddTask, lists }) {
   const editTitle = () => {
-    const newTitle = window.prompt("Название заголовка", lists.name);
+    const newTitle = window.prompt("Название заголовка", activeTasks.name);
     if (newTitle) {
-      onEditTitle(lists.id, newTitle);
+      onEditTitle(activeTasks.id, newTitle);
       axios
-        .patch("http://localhost:3001/lists/" + lists.id, { name: newTitle })
+        .patch("https://62d09a6ad9bf9f17058b7196.mockapi.io/lists?id" + lists.id, { name: newTitle })
         .catch(() => {
           alert("не удалось обновить название");
         });
     }
   };
+  console.log(activeTasks)
   return (
-    activeItem.id && (
+    (
       <div className="tasks">
         <h2 className="tasks__title">
-          {lists.name}
+        {activeItem.name}
           <img onClick={editTitle} src={editSVG} alt="edit icon" />
         </h2>
         <div className="tasks__items">
-        {!lists.tasks.length && <h2>Задачи отсутвуют</h2>}
-          { lists.tasks.map((task, i) => 
-            activeItem.id === lists.tasks[i].listId && (
+        {!activeTasks.length && <h2>Задачи отсутвуют</h2>}
+        {console.log(activeTasks)}
+          { activeTasks.map((task, i) => 
+            activeItem.id === activeTasks[i].listId && (
                 <div key={task.id} className="tasks__items-row">
                   <div className="checkbox">
                     <input id={`task-${task.id}`} type="checkbox" />
@@ -54,7 +56,7 @@ function Tasks({ activeItem, lists, onEditTitle, onAddTask }) {
                 </div>
             ))
           }
-          <AddTaskForm lists={lists} onAddTask={onAddTask} />
+          <AddTaskForm activeItem={activeItem} onAddTask={onAddTask} />
         </div>
       </div>
     )
