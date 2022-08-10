@@ -1,0 +1,23 @@
+.main {
+    margin: 100px auto;
+    padding: 30px;
+
+    &__name {
+        text-align: center;
+    }
+
+    &__projects {
+        max-width: 500px;
+        background-color: rgb(108, 159, 253);
+        &__items {
+            a {
+                color: #fff;
+            }
+
+            margin: 10px;
+
+        }
+    }
+
+
+}
