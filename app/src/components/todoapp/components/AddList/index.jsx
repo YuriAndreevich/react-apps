@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "../List";
 import Badge from "../Badge";
 import closeSvg from "../../img/close.svg";
 import axios from "axios";
 
 import "./AddList.scss";
-import { useEffect } from "react";
 
 const AddList = ({ colors, onAdd }) => {
   const [visablePopup, setVisablePopup] = useState(false);
@@ -32,12 +31,12 @@ const AddList = ({ colors, onAdd }) => {
     }
     setIsLoading(true);
     axios
-      .post("https://62d09a6ad9bf9f17058b7196.mockapi.io/item?tasks=1", {
+      .post("https://62d09a6ad9bf9f17058b7196.mockapi.io/tasks", {
         name: inputValue,
         colorId: selectedColor,
       })
       .then(({ data }) => {
-        const color = colors.filter((c) => c.id === selectedColor)[0].name;
+        const color = colors.filter((c) => c.id === selectedColor).name;
         const listObj = { ...data, color: { name: color } };
         onAdd(listObj);
         onClose();

@@ -28,7 +28,6 @@ function Tasks({ activeItem, activeTasks, onEditTitle, onAddTask, lists }) {
         </h2>
         <div className="tasks__items">
         {!activeTasks.length && <h2>Задачи отсутвуют</h2>}
-        {console.log(activeTasks)}
           { activeTasks.map((task, i) => 
             activeItem.id === activeTasks[i].listId && (
                 <div key={task.id} className="tasks__items-row">

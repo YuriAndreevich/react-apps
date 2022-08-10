@@ -9,7 +9,6 @@ import Navbar from './components/layout/main/Main__navbar'
 import MVideo from "./components/layout/layout2";
 
 function App() {
-
   return (
     <div className={s.main}>
       <Navbar/>

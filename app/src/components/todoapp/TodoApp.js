@@ -6,8 +6,8 @@ import "./index.scss";
 import { List, AddList, Tasks } from "./components";
 
 const TodoApp = () => {
-  const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [lists, setLists] = useState(null);
   const [activeTasks, setActiveTasks] = useState(null)
   const [activeItem, setActiveItem] = useState(null);
 
@@ -28,7 +28,7 @@ const TodoApp = () => {
         setActiveTasks(data);
       });
       
-  }, [setLists, setColors, setActiveTasks]);
+  }, [setLists]);
 
   const onAddList = (obj) => {
     const newList = [...lists, obj];
@@ -36,9 +36,8 @@ const TodoApp = () => {
   };
   const onAddTask = (listId, taskObj) => {
     const newList = lists.map((item, i) => {
-      console.log(item.id)
       if (item.id === listId) {
-        setActiveTasks = [...item.tasks, taskObj];
+        setActiveTasks = [...lists, taskObj];
       }
       return item;
     });
@@ -55,7 +54,8 @@ const TodoApp = () => {
     setLists(newList);
   };
   return (
-    <div className="todo">
+  activeTasks && lists &&  colors &&
+      <div className="todo">
       <div className="todo__sidebar">
         <List
           items={[
@@ -90,7 +90,7 @@ const TodoApp = () => {
             onClickItem={(item) => setActiveItem(item)}
             activeItem={activeItem}
           />
-        <AddList onAdd={onAddList} colors={lists[2].colors}  />
+        <AddList onAdd={onAddList} colors={colors}  />
         </>
         ) : (
           "загрузка..."
