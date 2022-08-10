@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import SVG from 'react-inlinesvg'
 
 import  "./Main.scss";
+import waveSVG from '../../../images/wave.svg'
 
 function Main() {
   const [visiblePopup, setVisiblePopup] = useState(false);
@@ -13,25 +15,29 @@ function Main() {
   };
 
   return (
+    <>
     <div className='main'>
+
+      <div className='main__projects'>
       <div className='main__name'>
         <h1>Yuri Silin</h1>
       </div>
-      <div className='main__projects'>
         <div className='main__items'>
           <Link to="/todo">todoApp</Link>
         </div>
         <div className='main__items'>
           <Link to="/pizza">PizzaApp</Link>
         </div>
-        <a
-          className='main__items'
+        
+        <div className='main__items'>
+
+          <a
           href="http://history2022.sava.site/"
           target="_blank"
-          rel="noreferrer"
-        >
+          rel="noreferrer">
           History
         </a>
+        </div>
       </div>
       {/*  <div onClick={clickPopup} className={s.dropdown}>
         {useSection}
@@ -49,7 +55,10 @@ function Main() {
           </div>
         )}
       </div> */}
+          <SVG src={waveSVG}/>
     </div>
+
+    </>
   );
 }
 
