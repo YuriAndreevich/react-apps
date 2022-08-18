@@ -9,10 +9,10 @@
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   background-color: #fff;
-  
+
 }
 
-.todo__button{
+.todo__button {
   background: #4dd599;
   border-radius: 4px;
   color: #fff;
@@ -20,22 +20,26 @@
   padding: 10px 20px;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background: darken(#4dd599, 6%);
   }
-  &:active{
+
+  &:active {
     background: darken(#4dd599, 10%);
   }
-  &--gray{
+
+  &--gray {
     background: #f4f6f8;
     color: #444;
+
     &:hover {
       background: darken(#f4f6f8, 3%);
     }
-    &:active{
+
+    &:active {
       background: darken(#f4f6f8, 6%);
     }
-}
+  }
 
 }
 
@@ -46,29 +50,38 @@
   min-height: 530px;
   font-size: 14px;
   margin: 30px;
+
   @media (max-width: 754px) {
-    flex-wrap: wrap;
-    }
+flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
 
   &__sidebar {
     border-radius: 5px 5px 0;
-    background-color: #f4f6f8;
+    background-color: #fff;
     width: 200px;
     height: 100%;
 
     padding: 60px 20px;
+    @media (max-width:754px) {
+      padding: 20px 0;
+      
+    }
   }
+
   &__tasks {
     max-width: 500px;
     padding: 30px;
+
     @media (max-width: 754px) {
-      max-width: 100%
-      }
+      max-width: 100%;
+    }
   }
 }
 
 
-.field{
+.field {
   background: #ffffff;
   border: 1px solid #efefef;
   box-sizing: border-box;
@@ -77,7 +90,7 @@
   width: 100%;
   font-size: 14px;
 
-  &:focus{
+  &:focus {
     border-color: #dbdbdb;
   }
 }
