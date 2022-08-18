@@ -7,10 +7,11 @@ import axios from "axios";
 import removeSVG from "../../img/remove.svg";
 
 const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem, colors }) => {
-  const removeList = (item) => {
+  const removeList =  (item) => {
     if (window.confirm("вы действительно хотите удалить список?"))
-      axios.delete("https://62d09a6ad9bf9f17058b7196.mockapi.io/lists?id=" + item.id).then(() => {
-      onRemove(item.id);
+      axios
+      .delete(`https://62d09a6ad9bf9f17058b7196.mockapi.io/lists?id=${item.id}`).then(() => {
+      onRemove(item.id)
       });
   };
 

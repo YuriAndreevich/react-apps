@@ -18,7 +18,6 @@ function Tasks({ activeItem, activeTasks, onEditTitle, onAddTask, lists }) {
         });
     }
   };
-  console.log(activeTasks)
   return (
     (
       <div className="tasks">
