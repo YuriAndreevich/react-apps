@@ -7,11 +7,12 @@
         color: #64c4ed;
         padding-bottom: 20px;
         border-bottom: 1px solid #f2f2f2;
+
         @media (max-width: 754px) {
             flex-direction: column;
-                display: flex;
-                align-items: center;
-              }
+            display: flex;
+            align-items: center;
+        }
 
         &:hover {
             img {
@@ -29,39 +30,48 @@
             }
         }
     }
-    
 
-&__form {
-    margin-top: 20px;
 
-    &-block{
-        .button{
-            margin-right: 10px;
-            margin-top: 15px;
-        }
-    }
-    &-new{
-        display: flex;
-        align-items: center;
+    &__form {
         margin-top: 20px;
-        opacity: 0.4;
-        cursor: pointer;
-        transition: opacity 0.15s ease-in-out;
-        &:hover{
-            opacity: 0.8;
 
+        &-block {
+            .todo__button {
+                margin-right: 5px;
+                margin-top: 15px;
+
+            }
+            
+            .button--gray {
+                background-color: #b2b2b2;
+            }
         }
-        img{
-            width: 16px;
-            margin-left: 1px;
-            height: 16px;
-        }
-        span{
-            font-size: 16px;
-            margin-left: 19px;
+
+        &-new {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            opacity: 0.4;
+            cursor: pointer;
+            transition: opacity 0.15s ease-in-out;
+
+            &:hover {
+                opacity: 0.8;
+
+            }
+
+            img {
+                width: 16px;
+                margin-left: 1px;
+                height: 16px;
+            }
+
+            span {
+                font-size: 16px;
+                margin-left: 19px;
+            }
         }
     }
-}
 
     &__items {
         margin-top: 30px;
@@ -92,7 +102,7 @@
     }
 
 
-    
+
     .checkbox {
 
         input {
@@ -103,6 +113,7 @@
             transition: opacity 0.15s ease-in-out;
             margin: 0 0 2px 2px;
             background-color: #4dd599;
+
             path {
                 stroke: #f2f2f2;
             }
@@ -114,7 +125,8 @@
 
             svg {
                 opacity: 1;
-margin: 0 0 2px 2px;
+                margin: 0 0 2px 2px;
+
                 path {
                     stroke: rgb(0, 0, 0);
                 }
@@ -129,6 +141,7 @@ margin: 0 0 2px 2px;
                 svg {
                     opacity: 1;
                     background-color: #f2f2f2;
+
                     path {
                         stroke: #b2b2b2;
                     }

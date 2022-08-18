@@ -23,7 +23,7 @@ function AddTaskForm({ activeItem, onAddTask }) {
       .then(({ data }) => {
         onAddTask(activeItem.id, data);
         toggleFormVisible();
-    });
+      });
   };
 
   return (
@@ -42,10 +42,10 @@ function AddTaskForm({ activeItem, onAddTask }) {
             placeholder="Текст задачи"
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <button onClick={addTask} className="todo__button">
+          <button onClick={inputValue !== '' ? addTask() : () => window.alert('Введите название списка')} className="todo__button">
             Добавить задачу
           </button>
-          <button onClick={toggleFormVisible} className="button button--gray">
+          <button onClick={toggleFormVisible} className="todo__button button--gray">
             Отмена
           </button>
         </div>
