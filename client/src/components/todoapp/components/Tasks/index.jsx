@@ -12,7 +12,7 @@ function Tasks({ activeItem, activeTasks, onEditTitle, onAddTask, lists }) {
     if (newTitle) {
       onEditTitle(activeTasks.id, newTitle);
       axios
-        .patch("https://62d09a6ad9bf9f17058b7196.mockapi.io/lists?id" + lists.id, { name: newTitle })
+        .put("https://62d09a6ad9bf9f17058b7196.mockapi.io/lists?id=" + activeItem.id, { name: newTitle })
         .catch(() => {
           alert("не удалось обновить название");
         });

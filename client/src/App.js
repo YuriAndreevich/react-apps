@@ -5,7 +5,8 @@ import PizzaApp from "./components/pizza/PizzaApp";
 import TodoApp from "./components/todoapp/TodoApp";
 import s from'./App.module.scss'
 import Layout1 from "./components/layout/layout1/";
-import Main from './components/layout/main/Main'
+import Main from './components/layout/main/Main';
+import Twitter from "./components/Twitter/Twitter";
 import MVideo from "./components/layout/layout2";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/todo" element={<TodoApp />} />
         <Route path='/layout1' element={<Layout1/>}/>
         <Route path='/layout2' element={<MVideo/>}/>
+        <Route path='/twitter' element={<Twitter/>}/>
       </Routes>
     </div>
   );

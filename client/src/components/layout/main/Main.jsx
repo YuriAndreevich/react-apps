@@ -28,6 +28,9 @@ function Main() {
         <div className='main__items'>
           <Link to="/pizza">PizzaApp</Link>
         </div>
+        <div className='main__items'>
+          <Link to="/twitter">Twitter-clone</Link>
+        </div>
         
         <div className='main__items'>
 
